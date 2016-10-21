@@ -28,3 +28,6 @@ def find_target(target, array)
     return false
 
 end
+
+# the above asks "How many times do we need to cut n (the array) in 1/2 before we get 1 result"
+# this is time complexity of O(log2n)
