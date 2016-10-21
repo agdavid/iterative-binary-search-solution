@@ -6,14 +6,25 @@ def find_target(target, array)
     ceiling_index = array.length
 
     # always need to make sure at least one value between bookends
-    while floor_index+1 < array.length
+    while floor_index+1 < ceiling_index
 
         # set values to see if target is in range
         distance = ceiling_index - floor_index
         half_distance = distance/2
         guess_index = floor_index + half_distance
-        guess_value = array[guess_index] 
+        guess_value = array[guess_index]
 
+        if guess_value == target
+            return true
+        elsif guess_value > target 
+            # know target is in lower half, reset ceiling_index
+            ceiling_index = guess_index    
+        else
+            # know target is in upper half, reset floor_index
+            floor_index = guess_index
+        end 
     end
+
+    return false
 
 end
